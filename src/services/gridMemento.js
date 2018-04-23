@@ -1,11 +1,15 @@
 import {generateGrid} from "../reducers/grid.helpers";
 
-export const GridMemento = {
+export const StateMemento = {
     setState: data => {
-        localStorage.setItem('grid', JSON.stringify(data));
+        localStorage.setItem('state', JSON.stringify(data));
     },
 
     getState: () => {
-        return JSON.parse(localStorage.getItem('grid')) || generateGrid();
+        const {steps, grid} = JSON.parse(localStorage.getItem('state')) || {};
+        return {
+            steps: steps || 0,
+            grid: grid || generateGrid(),
+        };
     }
 };

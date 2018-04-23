@@ -5,11 +5,9 @@ import {App} from './components/app/App.container';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import {reducers} from "./reducers";
-import {GridMemento} from "./services/gridMemento";
+import {StateMemento} from "./services/gridMemento";
 
-const store = createStore(reducers, {
-    grid: GridMemento.getState(),
-});
+const store = createStore(reducers, StateMemento.getState());
 
 render(
     <Provider store={store}>
@@ -19,5 +17,5 @@ render(
 );
 
 window.addEventListener('unload', function() {
-    GridMemento.setState(store.getState()['grid']);
+    StateMemento.setState(store.getState());
 });
