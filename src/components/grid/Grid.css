@@ -1,0 +1,22 @@
+.grid {
+    display: inline-grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-content: center;
+    background-color: white;
+    padding: 5px;
+}
+
+.grid__cell {
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid__zero-cell {
+    visibility: hidden;
+}
