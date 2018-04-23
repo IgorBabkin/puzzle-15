@@ -1,8 +1,10 @@
 import {GridActions} from "../../actions/grid.actions";
 import {connect} from "react-redux";
 import {AppComponent} from "./App.component";
+import {isGameFinished} from "../../reducers/grid.helpers";
 
-const mapStateToProps = ({steps}) => ({
+const mapStateToProps = ({steps, grid}) => ({
+    finished: isGameFinished(grid),
     steps,
 });
 

@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 export function canUpdateGrid(grid, target) {
     const [x0, y0] = findPosition(grid, 0);
     const [x1, y1] = findPosition(grid, target);
@@ -42,4 +44,18 @@ export function generateGrid() {
     }
 
     return grid;
+}
+
+export function isGameFinished(grid) {
+    const values = _.flatten(grid);
+
+    if (values[15] !== 0)
+        return false;
+
+    for (let i=0; i<14; i++) {
+        if (values[i] > values[i+1])
+            return false;
+    }
+
+    return true;
 }

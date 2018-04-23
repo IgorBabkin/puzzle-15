@@ -5,9 +5,10 @@ import Button from 'react-uikit-button';
 
 export class AppComponent extends Component {
     render() {
-        const {onNewGame, steps} = this.props;
+        const {onNewGame, steps, finished} = this.props;
         return (
             <div className="App">
+                {finished && <div>You have won!</div>}
                 <div>Steps: {steps}</div>
                 <Grid />
                 <Button onClick={onNewGame}>New Game</Button>
