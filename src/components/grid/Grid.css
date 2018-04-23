@@ -22,6 +22,10 @@
     justify-content: center;
 }
 
+.grid__cell_drag_off {
+    cursor: not-allowed;
+}
+
 .grid__zero-cell {
     visibility: hidden;
 }

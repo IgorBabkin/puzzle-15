@@ -9,8 +9,8 @@ export class GridComponent extends Component {
             <div className='grid'>
                 {cells.map(item =>
                     <Cell
-                        key={item}
-                        value={item}
+                        key={item.value}
+                        item={item}
                         onClick={onCellClick}
                     />
                 )}

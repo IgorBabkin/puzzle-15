@@ -1,8 +1,8 @@
-export const gridReducer = (canUpdateGrid, updateGrid, generateGrid) =>
+export const gridReducer = (updateGrid, generateGrid) =>
     (state = [], {type, payload}) => {
         switch (type) {
             case 'UPDATE_GRID':
-                return canUpdateGrid(state, payload) ? updateGrid(state, payload) : state;
+                return updateGrid(state, payload);
 
             case 'GENERATE_NEW_GRID':
                 return generateGrid();
