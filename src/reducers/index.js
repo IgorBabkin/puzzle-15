@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
-import {gridReducer} from "./grid.reducer";
+import {snapshotsReducer} from "./snapshots.reducer";
 import {generateGrid, updateGrid} from "./grid.helpers";
-import {stepsReducer} from "./steps.reducer";
+import {seekReducer} from "./seek.reducer";
 
 export const reducers = combineReducers({
-    grid: gridReducer(updateGrid, generateGrid),
-    steps: stepsReducer,
+    snapshots: snapshotsReducer(updateGrid, generateGrid),
+    seek: seekReducer,
 });

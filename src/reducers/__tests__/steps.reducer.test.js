@@ -1,4 +1,4 @@
-import {GridActions} from "../../actions/grid.actions";
+import {SnapshotActions} from "../../actions/grid.actions";
 import {stepsReducer} from "../steps.reducer";
 
 describe('steps reducer', () => {
@@ -6,7 +6,7 @@ describe('steps reducer', () => {
         const state = 0;
         const expected = 1;
 
-        const actual = stepsReducer(state, GridActions.update(2));
+        const actual = stepsReducer(state, SnapshotActions.addSnapshot(2));
 
         expect(actual).toBe(expected);
     });
@@ -15,7 +15,7 @@ describe('steps reducer', () => {
         const state = 1;
         const expected = 0;
 
-        const actual = stepsReducer(state, GridActions.generateNew());
+        const actual = stepsReducer(state, SnapshotActions.dropSnapshots());
 
         expect(actual).toBe(expected);
     });

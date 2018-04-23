@@ -1,14 +1,14 @@
 import {GridComponent} from "./Grid.component";
-import {GridActions} from "../../actions/grid.actions";
 import {connect} from "react-redux";
 import {cellsSelector} from "./Grid.selector";
+import {PuzzleActions} from "../../actions/puzzle.actions";
 
 const mapStateToProps = state => ({
     cells: cellsSelector(state),
 });
 
 const mapDispatchToProps = {
-    onCellClick: GridActions.update,
+    onCellClick: PuzzleActions.nextStep,
 };
 
 export const Grid = connect(mapStateToProps, mapDispatchToProps)(GridComponent);

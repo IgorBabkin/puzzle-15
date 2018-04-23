@@ -1,15 +1,15 @@
-import {GridActions} from "../../actions/grid.actions";
 import {connect} from "react-redux";
 import {AppComponent} from "./App.component";
 import {isGameFinished} from "../../reducers/grid.helpers";
+import {PuzzleActions} from "../../actions/puzzle.actions";
+import {currentSnapshotSelector} from "../grid/Grid.selector";
 
-const mapStateToProps = ({steps, grid}) => ({
-    finished: isGameFinished(grid),
-    steps,
+const mapStateToProps = state => ({
+    finished: isGameFinished(currentSnapshotSelector(state)),
 });
 
 const mapDispatchToProps = {
-    onNewGame: GridActions.generateNew,
+    onNewGame: PuzzleActions.newGame,
 };
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(AppComponent);

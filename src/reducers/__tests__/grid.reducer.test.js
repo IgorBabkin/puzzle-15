@@ -1,5 +1,5 @@
-import {gridReducer} from "../grid.reducer";
-import {GridActions} from "../../actions/grid.actions";
+import {snapshotsReducer} from "../grid.reducer";
+import {SnapshotActions} from "../../actions/grid.actions";
 
 describe('grid reducer', () => {
     let updateGridMock;
@@ -9,7 +9,7 @@ describe('grid reducer', () => {
     beforeEach(() => {
         updateGridMock = jest.fn();
         generateGridMock = jest.fn();
-        reducer = gridReducer(
+        reducer = snapshotsReducer(
             updateGridMock,
             generateGridMock
         );
@@ -21,7 +21,7 @@ describe('grid reducer', () => {
         const cellValue = 12;
         updateGridMock.mockImplementation((grid, target) => (grid === state && target === cellValue) ? expected : []);
 
-        const actual = reducer(state, GridActions.update(cellValue));
+        const actual = reducer(state, SnapshotActions.addSnapshot(cellValue));
 
         expect(actual).toBe(expected);
     });
@@ -30,7 +30,7 @@ describe('grid reducer', () => {
         const expected = [];
         generateGridMock.mockImplementation(() => expected);
 
-        const actual = reducer([], GridActions.generateNew());
+        const actual = reducer([], SnapshotActions.dropSnapshots());
 
         expect(actual).toBe(expected);
     });
