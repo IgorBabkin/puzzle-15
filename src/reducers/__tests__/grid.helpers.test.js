@@ -1,4 +1,4 @@
-import {canUpdateGrid, updateGrid} from "../grid.helpers";
+import {canUpdateGrid, generateGrid, updateGrid} from "../grid.helpers";
 
 describe('grid helpers', () => {
     it('should update grid', () => {
@@ -44,5 +44,33 @@ describe('grid helpers', () => {
         const actual = canUpdateGrid(grid, 11);
 
         expect(actual).toBeFalsy();
+    });
+
+    function sumOfGrid(grid) {
+        let sum = 0;
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                sum += grid[i][j];
+            }
+        }
+
+        return sum;
+    }
+
+    test('generated grid should be 4x4', () => {
+        const grid = generateGrid();
+
+        expect(grid.length).toEqual(4);
+        expect(grid[0].length).toEqual(4);
+    });
+
+    test('amount of numbers should be equal to 120', () => {
+        const expected = (15 + 1) * 15 / 2;
+
+        const grid = generateGrid();
+        const actual = sumOfGrid(grid);
+
+        expect(actual).toEqual(expected);
     });
 });

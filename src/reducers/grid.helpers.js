@@ -28,3 +28,18 @@ export function updateGrid(grid, target) {
 
     return newGrid;
 }
+
+export function generateGrid() {
+    const grid = [[], [], [], []];
+    const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            const randNumber = numbers[Math.round(Math.random() * (numbers.length - 1))];
+            numbers.splice(numbers.indexOf(randNumber), 1);
+            grid[i][j] = randNumber;
+        }
+    }
+
+    return grid;
+}
