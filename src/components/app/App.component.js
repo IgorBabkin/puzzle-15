@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../../logo.svg';
 import './App.css';
-import {Grid} from "../grid/Grid.component";
+import {Grid} from "../grid/Grid.container";
 
 class App extends Component {
     render() {
@@ -15,17 +15,7 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
 
-                <Grid
-                    cells={[
-                        1, 2, 3, 4,
-                        5, 6, 7, 8,
-                        9, 10, 11, 12,
-                        13, 14, 15, 0,
-                    ]}
-                    onClick={value => {
-                        console.log(value)
-                    }}
-                />
+                <Grid />
             </div>
         );
     }

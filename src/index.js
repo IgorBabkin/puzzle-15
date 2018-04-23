@@ -6,7 +6,14 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 import {reducers} from "./reducers";
 
-const store = createStore(reducers);
+const store = createStore(reducers, {
+    grid: [
+        [1,2,3,4],
+        [5,6,7,8],
+        [9,10,11,12],
+        [13,14,15,0],
+    ]
+});
 
 render(
     <Provider store={store}>
