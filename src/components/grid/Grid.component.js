@@ -6,7 +6,7 @@ export class GridComponent extends Component {
     render() {
         const {cells, onCellClick} = this.props;
         return (
-            <div className='grid'>
+            <div className={this.getCssClassName()} onClickCapture={this.onClickCaptureHandler}>
                 {cells.map(item =>
                     <Cell
                         key={item.value}
@@ -16,5 +16,22 @@ export class GridComponent extends Component {
                 )}
             </div>
         );
+    }
+
+    onClickCaptureHandler = (e) => {
+        const {disabled} = this.props;
+        if (disabled) {
+            e.stopPropagation();
+        }
+    };
+
+    getCssClassName() {
+        const {disabled} = this.props;
+        const classNames = ['grid'];
+
+        if (disabled)
+            classNames.push('grid_disabled');
+
+        return classNames.join(' ')
     }
 }

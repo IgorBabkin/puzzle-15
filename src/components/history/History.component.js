@@ -4,12 +4,12 @@ import './History.css';
 
 export class HistoryComponent extends Component {
     render() {
-        const {steps, onNext, onPrev} = this.props;
+        const {step, onNext, onPrev, hasNext, hasPrev} = this.props;
         return (
             <div className='history'>
-                <Button onClick={onPrev}>Previous</Button>
-                <div>Steps: {steps}</div>
-                <Button onClick={onNext}>Next</Button>
+                <Button onClick={onPrev} disabled={!hasPrev}>Previous</Button>
+                <div>Step: {step}</div>
+                <Button onClick={onNext} disabled={!hasNext}>Next</Button>
             </div>
         );
     }

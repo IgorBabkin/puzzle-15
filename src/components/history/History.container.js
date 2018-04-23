@@ -2,8 +2,10 @@ import {connect} from "react-redux";
 import {HistoryComponent} from "./History.component";
 import {SeekActions} from "../../actions/seek.actions";
 
-const mapStateToProps = ({seek}) => ({
-    steps: seek,
+const mapStateToProps = ({seek, snapshots}) => ({
+    step: seek,
+    hasNext: seek < (snapshots.length - 1),
+    hasPrev: seek > 0,
 });
 
 const mapDispatchToProps = {

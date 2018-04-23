@@ -5,6 +5,7 @@ import {PuzzleActions} from "../../actions/puzzle.actions";
 
 const mapStateToProps = state => ({
     cells: cellsSelector(state),
+    disabled: state.seek < (state.snapshots.length - 1)
 });
 
 const mapDispatchToProps = {

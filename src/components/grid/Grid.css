@@ -26,6 +26,10 @@
     cursor: not-allowed;
 }
 
+.grid_disabled {
+    opacity: 0.5;
+}
+
 .grid__zero-cell {
     visibility: hidden;
 }
