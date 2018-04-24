@@ -1,11 +1,11 @@
 import {GridComponent} from "./Grid.component";
 import {connect} from "react-redux";
-import {cellsSelector} from "./Grid.selector";
+import {cellsSelector, disabledSelector} from "./Grid.selector";
 import {PuzzleActions} from "../../actions/puzzle.actions";
 
 const mapStateToProps = state => ({
     cells: cellsSelector(state),
-    disabled: state.seek < (state.snapshots.length - 1)
+    disabled: disabledSelector(state),
 });
 
 const mapDispatchToProps = {

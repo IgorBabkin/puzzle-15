@@ -4,9 +4,12 @@ import {isGameFinished} from "../../reducers/snapshot.helpers";
 import {PuzzleActions} from "../../actions/puzzle.actions";
 import {currentSnapshotSelector} from "../grid/Grid.selector";
 
-const mapStateToProps = state => ({
-    finished: isGameFinished(currentSnapshotSelector(state)),
-});
+const mapStateToProps = state => {
+    const {currentSnapshot} = currentSnapshotSelector(state);
+    return {
+        finished: isGameFinished(currentSnapshot),
+    };
+};
 
 const mapDispatchToProps = {
     onNewGame: PuzzleActions.newGame,
