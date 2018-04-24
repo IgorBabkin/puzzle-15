@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {AppComponent} from "./App.component";
-import {isGameFinished} from "../../reducers/grid.helpers";
+import {isGameFinished} from "../../reducers/snapshot.helpers";
 import {PuzzleActions} from "../../actions/puzzle.actions";
 import {currentSnapshotSelector} from "../grid/Grid.selector";
 

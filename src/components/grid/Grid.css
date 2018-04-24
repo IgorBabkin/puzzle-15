@@ -18,14 +18,6 @@
     justify-content: center;
 }
 
-.grid__cell_drag_off {
-    cursor: not-allowed;
-}
-
 .grid_disabled {
-    opacity: 0.5;
-}
-
-.grid__zero-cell {
-    visibility: hidden;
+    opacity: 0.8;
 }

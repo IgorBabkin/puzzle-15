@@ -1,10 +1,26 @@
 import React, {Component} from 'react';
+import {Paper} from "material-ui";
 
 export class Cell extends Component {
     render() {
-        const {value} = this.props.item;
+        const {value, canDrag} = this.props.item;
+        const style = {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#337ab7',
+            color: '#fff',
+            visibility: value ? 'visible' : 'hidden',
+            cursor: canDrag ? 'default' : 'not-allowed',
+            hover: {
+                backgroundColor: 'red',
+            }
+        };
+
         return (
-            <div className={this.getClassName()} onClick={this.onClickHandler}>{value}</div>
+            <Paper zDepth={1} style={style} onClick={this.onClickHandler} circle={true}>
+                {value}
+            </Paper>
         );
     }
 
@@ -13,13 +29,4 @@ export class Cell extends Component {
         if (canDrag)
             onClick(value);
     };
-
-    getClassName() {
-        const {value, canDrag} = this.props.item;
-        const className = [value ? 'grid__cell' : 'grid__zero-cell'];
-        if (!canDrag)
-            className.push('grid__cell_drag_off ');
-
-        return className.join(' ');
-    }
 }

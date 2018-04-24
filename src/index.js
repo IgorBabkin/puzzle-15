@@ -7,17 +7,20 @@ import {Provider} from "react-redux";
 import {reducers} from "./reducers";
 import {StateMemento} from "./services/stateMemento";
 import thunk from "redux-thunk";
+import {MuiThemeProvider} from "material-ui";
 
 const store = createStore(reducers, StateMemento.getState(), applyMiddleware(thunk));
 window.store = store;
 
 render(
     <Provider store={store}>
-        <App/>
+        <MuiThemeProvider>
+            <App/>
+        </MuiThemeProvider>
     </Provider>,
     document.getElementById('root')
 );
 
-window.addEventListener('unload', function() {
+window.addEventListener('unload', function () {
     StateMemento.setState(store.getState());
 });

@@ -1,4 +1,4 @@
-import {generateGrid} from "../reducers/grid.helpers";
+import {generateGrid} from "../reducers/snapshot.helpers";
 
 export const StateMemento = {
     setState: data => {

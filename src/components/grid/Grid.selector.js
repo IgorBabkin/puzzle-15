@@ -1,4 +1,4 @@
-import {canUpdateGrid} from "../../reducers/grid.helpers";
+import {canUpdateGrid} from "../../reducers/snapshot.helpers";
 import * as _ from 'lodash';
 
 export const currentSnapshotSelector = ({snapshots, seek}) => snapshots[seek];

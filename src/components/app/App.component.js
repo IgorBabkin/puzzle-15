@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import {Grid} from "../grid/Grid.container";
-import Button from 'react-uikit-button';
 import {History} from "../history/History.container";
+import {RaisedButton} from "material-ui";
 
 export class AppComponent extends Component {
     render() {
@@ -11,7 +11,11 @@ export class AppComponent extends Component {
             <div className="app">
                 {finished && <div className="app__notification">Congratulations!</div>}
 
-                <Button onClick={onNewGame}>New Game</Button>
+                <RaisedButton
+                    label="New Game"
+                    onClick={onNewGame}
+                    primary={true}
+                />
 
                 <div className="app__grid">
                     <Grid/>

@@ -1,5 +1,6 @@
 .history {
     display: flex;
+    align-items: center;
 }
 
 .history__step {

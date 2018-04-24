@@ -1,4 +1,4 @@
-import {canUpdateGrid, generateGrid, isGameFinished, updateGrid} from "../grid.helpers";
+import {canUpdateGrid, generateGrid, isGameFinished, updateGrid} from "../snapshot.helpers";
 
 describe('grid helpers', () => {
     it('should update grid', () => {
