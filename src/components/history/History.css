@@ -5,4 +5,5 @@
 
 .history__step {
     margin: 0 10px;
+    white-space: nowrap;
 }
