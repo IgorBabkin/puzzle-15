@@ -1,14 +1,12 @@
 import {canUpdateGrid} from "../../reducers/snapshot.helpers";
-import * as _ from 'lodash';
+import {createSelector} from "reselect";
+import {snapshotToCellsViewModel} from "./Grid.helpers";
 
 export const currentSnapshotSelector = ({snapshots, seek}) => snapshots[seek];
 
-export const cellsSelector = state => {
-    const currentSnapshot = currentSnapshotSelector(state);
-    return _.flatten(currentSnapshot).map(item => ({
-        value: item,
-        canDrag: canUpdateGrid(currentSnapshot, item),
-    }));
-};
+export const cellsSelector = createSelector(
+    currentSnapshotSelector,
+    snapshotToCellsViewModel(canUpdateGrid),
+);
 
 export const disabledSelector = ({seek, snapshots}) => seek < (snapshots.length - 1);

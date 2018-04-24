@@ -1,6 +1,6 @@
 import {canUpdateGrid, generateGrid, isGameFinished, updateGrid} from "../snapshot.helpers";
 
-describe('grid helpers', () => {
+describe('snapshots helpers', () => {
     it('should update grid', () => {
         const grid = [
             [1,2,3,4],

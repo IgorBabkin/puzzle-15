@@ -1,15 +1,11 @@
 import {connect} from "react-redux";
 import {AppComponent} from "./App.component";
-import {isGameFinished} from "../../reducers/snapshot.helpers";
 import {PuzzleActions} from "../../actions/puzzle.actions";
-import {currentSnapshotSelector} from "../grid/Grid.selector";
+import {isGameFinishedSelector} from "./App.selector";
 
-const mapStateToProps = state => {
-    const {currentSnapshot} = currentSnapshotSelector(state);
-    return {
-        finished: isGameFinished(currentSnapshot),
-    };
-};
+const mapStateToProps = state => ({
+    finished: isGameFinishedSelector(state),
+});
 
 const mapDispatchToProps = {
     onNewGame: PuzzleActions.newGame,
