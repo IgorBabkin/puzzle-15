@@ -1,3 +1,7 @@
 .history {
+    display: flex;
+}
 
+.history__step {
+    margin: 0 10px;
 }

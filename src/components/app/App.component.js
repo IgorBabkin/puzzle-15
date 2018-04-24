@@ -8,11 +8,16 @@ export class AppComponent extends Component {
     render() {
         const {onNewGame, finished} = this.props;
         return (
-            <div className="App">
-                {finished && <div>You have won!</div>}
-                <Grid />
+            <div className="app">
+                {finished && <div className="app__notification">Congratulations!</div>}
+
                 <Button onClick={onNewGame}>New Game</Button>
-                <History />
+
+                <div className="app__grid">
+                    <Grid/>
+                </div>
+
+                <History/>
             </div>
         );
     }

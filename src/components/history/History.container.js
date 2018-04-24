@@ -4,6 +4,7 @@ import {SeekActions} from "../../actions/seek.actions";
 
 const mapStateToProps = ({seek, snapshots}) => ({
     step: seek,
+    total: snapshots.length - 1,
     hasNext: seek < (snapshots.length - 1),
     hasPrev: seek > 0,
 });
