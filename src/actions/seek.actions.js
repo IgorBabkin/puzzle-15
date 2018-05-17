@@ -3,12 +3,4 @@ export const SeekActions = {
         type: 'UPDATE_SEEK',
         payload,
     }),
-
-    next: () => ({
-        type: 'NEXT_SEEK',
-    }),
-
-    prev: () => ({
-        type: 'PREV_SEEK',
-    }),
 };

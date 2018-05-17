@@ -10,8 +10,7 @@ const mapStateToProps = ({seek, snapshots}) => ({
 });
 
 const mapDispatchToProps = {
-    onNext: SeekActions.next,
-    onPrev: SeekActions.prev,
+    onSeek: SeekActions.update,
 };
 
 export const History = connect(mapStateToProps, mapDispatchToProps)(HistoryComponent);

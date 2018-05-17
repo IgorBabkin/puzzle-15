@@ -9,17 +9,6 @@ export function canUpdateGrid(grid, target) {
     return isClosest && isOnTheSameLine;
 }
 
-export function findPosition(grid, target) {
-    for (let i=0; i<4; i++) {
-        for (let j=0; j<4; j++) {
-            if (grid[i][j] === target)
-                return [i, j];
-        }
-    }
-
-    throw new Error('Wrong arguments');
-}
-
 export function updateGrid(grid, target) {
     const [x0, y0] = findPosition(grid, 0);
     const [x1, y1] = findPosition(grid, target);
@@ -58,4 +47,15 @@ export function isGameFinished(grid) {
     }
 
     return true;
+}
+
+function findPosition(grid, target) {
+    for (let i=0; i<4; i++) {
+        for (let j=0; j<4; j++) {
+            if (grid[i][j] === target)
+                return [i, j];
+        }
+    }
+
+    throw new Error('Wrong arguments');
 }

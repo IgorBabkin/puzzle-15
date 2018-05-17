@@ -1,23 +1,38 @@
 import React, {Component} from 'react';
 import './History.css';
-import {FlatButton} from "material-ui";
+import {IconButton} from "material-ui";
 
 export class HistoryComponent extends Component {
     render() {
-        const {step, total, onNext, onPrev, hasNext, hasPrev} = this.props;
+        const {step, total, hasNext, hasPrev, onSeek} = this.props;
+        const stepTo = (position) => () => onSeek(position);
         return (
             <div className='history'>
-                <FlatButton
-                    label="Previous"
-                    onClick={onPrev}
+                <IconButton
+                    iconClassName="material-icons"
+                    onClick={stepTo(0)}
                     disabled={!hasPrev}
-                />
+                >skip_previous</IconButton>
+
+                <IconButton
+                    iconClassName="material-icons"
+                    onClick={stepTo(step - 1)}
+                    disabled={!hasPrev}
+                >fast_rewind</IconButton>
+
                 <div className='history__step'>Step: {step} / {total}</div>
-                <FlatButton
-                    label="Next"
-                    onClick={onNext}
+
+                <IconButton
+                    iconClassName="material-icons"
+                    onClick={stepTo(step + 1)}
                     disabled={!hasNext}
-                />
+                >fast_forward</IconButton>
+
+                <IconButton
+                    iconClassName="material-icons"
+                    onClick={stepTo(total)}
+                    disabled={!hasNext}
+                >skip_next</IconButton>
             </div>
         );
     }
